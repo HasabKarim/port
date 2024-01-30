@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="vs.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>My Portfolio</h1>
+    </header>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am <b>Hasab Karim</b> from northern Hunza.
+        <br> I have completed my graduation in <b>Geographic Information System (GIS)</b>
+        <br> Currently I am working as an intern in <b>Cloudlem.</b></p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="slider-container">
+            <div class="slider">
+                <img src="img.png" alt="Project 1">
+                <img src="ftth.png" alt="Project 2">
+                <img src="glacier.png" alt="Project 3">
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <p>Cartography| Good Command on visual representation of spatial data.<br>
+            Digitization |Good command on Spatial data extraction.<br>
+            Data Editing| Good command on data editing.<br>
+            Data Entry | Good command on data entry.<br>
+             .</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>+92 3499479880 <br> hasab.cloudlem@gmail.com</p>
+        <button onclick="changeText()">click</button>
+        <p id="dynamic-text">Current Page</p>
+    </section>
+
+    <script>
+        // JavaScript for image slider
+        let currentIndex = 0;
+        const slider = document.querySelector('.slider');
+        const images = document.querySelectorAll('.slider img');
+
+        function changeSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            const translateValue = -currentIndex * 100 + '%';
+            slider.style.transform = 'translateX(' + translateValue + ')';
+        }
+
+        setInterval(changeSlide, 3000);
+
+        // JavaScript for dynamic text change
+        function changeText() {
+            const newText = "New Text!";
+            document.getElementById('dynamic-text').textContent = newText;
+        }
+    </script>
+
+</body>
+</html>
